@@ -106,6 +106,10 @@
   <ItemGroup>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="src\app\employee\employeeCount.component.css" />
+    <Content Include="src\app\employee\employeeCount.component.html" />
+    <Content Include="src\app\employee\employeeList.component.css" />
+    <Content Include="src\app\employee\employeeList.component.html" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
     <Content Include="src\styles.css" />
@@ -121,6 +125,10 @@
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\employee\employee.service.ts" />
+    <TypeScriptCompile Include="src\app\employee\employee.ts" />
+    <TypeScriptCompile Include="src\app\employee\employeeCount.component.ts" />
+    <TypeScriptCompile Include="src\app\employee\employeeList.component.ts" />
     <TypeScriptCompile Include="src\main.ts" />
   </ItemGroup>
   <ItemGroup>
