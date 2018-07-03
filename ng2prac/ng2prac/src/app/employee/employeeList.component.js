@@ -26,7 +26,9 @@ var EmployeeListComponent = /** @class */ (function () {
     // service method of EmployeeService using the private
     // variable _employeeService
     EmployeeListComponent.prototype.ngOnInit = function () {
-        this.employees = this._employeeService.getEmployees();
+        var _this = this;
+        this._employeeService.getEmployees()
+            .subscribe(function (employeesData) { return _this.employees = employeesData; });
     };
     EmployeeListComponent.prototype.getTotalEmployeesCount = function () {
         return this.employees.length;

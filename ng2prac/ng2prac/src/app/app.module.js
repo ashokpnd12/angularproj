@@ -11,6 +11,7 @@ var core_1 = require("@angular/core");
 var employeecount_component_1 = require("./employee/employeecount.component");
 var forms_1 = require("@angular/forms");
 var employeeList_component_1 = require("./employee/employeeList.component");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -23,7 +24,8 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 platform_browser_1.BrowserModule,
-                forms_1.FormsModule
+                forms_1.FormsModule,
+                http_1.HttpModule
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]

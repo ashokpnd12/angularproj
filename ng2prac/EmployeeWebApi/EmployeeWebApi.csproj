@@ -172,6 +172,7 @@
     <Content Include="EmployeeDataModel.edmx.diagram">
       <DependentUpon>EmployeeDataModel.edmx</DependentUpon>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

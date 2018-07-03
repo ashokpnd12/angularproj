@@ -26,7 +26,8 @@ export class EmployeeListComponent implements OnInit {
     // service method of EmployeeService using the private
     // variable _employeeService
     ngOnInit() {
-        this.employees = this._employeeService.getEmployees();
+        this._employeeService.getEmployees()
+            .subscribe(employeesData => this.employees = employeesData);
     }
 
     getTotalEmployeesCount(): number {

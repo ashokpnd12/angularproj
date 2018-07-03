@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { EmployeeCountComponent } from './employee/employeecount.component';
 import { FormsModule } from '@angular/forms'
 import { EmployeeListComponent } from './employee/employeeList.component'
-
+import { HttpModule } from '@angular/http'
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { AppComponent } from './app.component';
     ],
     imports: [
         BrowserModule,
-        FormsModule
+        FormsModule,
+        HttpModule
     ],
     providers: [],
     bootstrap: [AppComponent]
