@@ -96,6 +96,7 @@
     <Content Include="package.json" />
     <Content Include="tslint.json" />
     <Content Include="src\tsconfig.json" />
+    <None Include="Properties\PublishProfiles\ng2prac.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
