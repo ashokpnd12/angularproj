@@ -14,6 +14,7 @@ export class EmployeeListComponent implements OnInit {
     employees: IEmployee[];
 
     selectedEmployeeCountRadioButton: string = 'All';
+    statusMessage: string = 'Loading data. Please wait...';
 
     // Inject EmployeeService using the constructor
     // The private variable _employeeService which points to
@@ -27,7 +28,7 @@ export class EmployeeListComponent implements OnInit {
     // variable _employeeService
     ngOnInit() {
         this._employeeService.getEmployees()
-            .subscribe(employeesData => this.employees = employeesData);
+            .subscribe(employeesData => this.employees = employeesData, error => { this.statusMessage = 'Problem with the service. Please try again after sometime'; console.error(error) });
     }
 
     getTotalEmployeesCount(): number {
