@@ -17,3 +17,6 @@ C:\Users\Ashok\Documents\Visual Studio 2015\Projects\angularproj\ng2prac\ng2prac
 C:\Users\Ashok\Documents\Visual Studio 2015\Projects\angularproj\ng2prac\ng2prac\bin\Microsoft.ApplicationInsights.xml
 C:\Users\Ashok\Documents\Visual Studio 2015\Projects\angularproj\ng2prac\ng2prac\obj\Debug\ng2prac.dll
 C:\Users\Ashok\Documents\Visual Studio 2015\Projects\angularproj\ng2prac\ng2prac\obj\Debug\ng2prac.pdb
+C:\Users\Ashok\Desktop\ng2prac\ng2prac\obj\Debug\ng2prac.csprojResolveAssemblyReference.cache
+C:\Users\Ashok\Desktop\ng2prac\ng2prac\obj\Debug\ng2prac.dll
+C:\Users\Ashok\Desktop\ng2prac\ng2prac\obj\Debug\ng2prac.pdb
