@@ -1,13 +1,13 @@
 # angularproj
 
-#install and use Bootstrap with Angular
+# install and use Bootstrap with Angular
 1.open node.js command prompt window
 2.navigate to the folder that contains your
  angular project and type the following command
  and press enter key
 npm install bootstrap@3 jquery --save
 
-#Database Script
+# Database Script
 create Database EmployeeDB
 use EmployeeDB
 Create table Employees
