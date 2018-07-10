@@ -121,6 +121,9 @@
     </Content>
     <Content Include="bs-config.json" />
     <Content Include="package.json" />
+    <Content Include="src\app\employee\employee.component.css" />
+    <Content Include="src\app\employee\employee.component.html" />
+    <Content Include="src\app\other\pageNotFound.component.css" />
     <Content Include="tslint.json" />
     <Content Include="src\tsconfig.json" />
     <Content Include="node_modules\bootstrap\CHANGELOG.md" />
@@ -244,13 +247,14 @@
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\employee\employee.component.ts" />
     <TypeScriptCompile Include="src\app\employee\employee.service.ts" />
     <TypeScriptCompile Include="src\app\employee\employee.ts" />
     <TypeScriptCompile Include="src\app\employee\employeeCount.component.ts" />
     <TypeScriptCompile Include="src\app\employee\employeeList.component.ts" />
     <TypeScriptCompile Include="src\app\home\home.component.ts" />
     <TypeScriptCompile Include="src\main.ts" />
-    <TypeScriptCompile Include="src\app\other\pageNotFound.Component.ts" />
+    <TypeScriptCompile Include="src\app\other\pageNotFound.component.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

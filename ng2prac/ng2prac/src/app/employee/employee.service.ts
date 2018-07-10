@@ -55,6 +55,14 @@ export class EmployeeService {
             .catch(this.handleError)
     }
 
+    getEmployeesByCode(empCode: string): Observable<IEmployee> {
+        // To convert Observable<Response> to Observable<IEmployee[]>
+        // we are using the map operator
+        return this._http.get('http://localhost:54171/api/employee/'+empCode)
+            .map((response: Response) => <IEmployee>response.json())
+            .catch(this.handleError)
+    }
+
     handleError(error: Response) {
         console.error(error)
         return Observable.throw(error)

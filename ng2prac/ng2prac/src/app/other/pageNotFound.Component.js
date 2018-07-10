@@ -12,10 +12,11 @@ var pageNotFoundComponent = /** @class */ (function () {
     }
     pageNotFoundComponent = __decorate([
         core_1.Component({
-            template: '<h1>404</h1>'
+            template: '<h1>404</h1>',
+            styleUrls: ['app/other/pageNotFound.component.css']
         })
     ], pageNotFoundComponent);
     return pageNotFoundComponent;
 }());
 exports.pageNotFoundComponent = pageNotFoundComponent;
-//# sourceMappingURL=pageNotFound.Component.js.map
+//# sourceMappingURL=pageNotFound.component.js.map
