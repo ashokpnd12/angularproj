@@ -40,5 +40,6 @@ C:\Users\Ashok\Documents\Visual Studio 2015\Projects\angularproj\ng2prac\Employe
 C:\Users\Ashok\Documents\Visual Studio 2015\Projects\angularproj\ng2prac\EmployeeWebApi\bin\System.Net.Http.Formatting.xml
 C:\Users\Ashok\Documents\Visual Studio 2015\Projects\angularproj\ng2prac\EmployeeWebApi\bin\System.Web.Http.xml
 C:\Users\Ashok\Documents\Visual Studio 2015\Projects\angularproj\ng2prac\EmployeeWebApi\bin\System.Web.Http.WebHost.xml
+C:\Users\Ashok\Documents\Visual Studio 2015\Projects\angularproj\ng2prac\EmployeeWebApi\obj\Debug\EmployeeWebApi.csprojResolveAssemblyReference.cache
 C:\Users\Ashok\Documents\Visual Studio 2015\Projects\angularproj\ng2prac\EmployeeWebApi\obj\Debug\EmployeeWebApi.dll
 C:\Users\Ashok\Documents\Visual Studio 2015\Projects\angularproj\ng2prac\EmployeeWebApi\obj\Debug\EmployeeWebApi.pdb
