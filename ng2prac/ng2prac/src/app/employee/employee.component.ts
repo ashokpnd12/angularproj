@@ -2,6 +2,8 @@
 import { IEmployee } from './employee'
 import { EmployeeService } from './employee.service'
 import { ActivatedRoute, Router } from '@angular/router';
+import 'rxjs/add/operator/retry'
+import 'rxjs/add/operator/delay'
 
 @Component({
     selector: 'my-employee',
@@ -9,7 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
     styleUrls: ['app/employee/employee.component.css']
 })
 export class employeeComponent implements OnInit {
-        employees: IEmployee;
+    employees: IEmployee;
+    retryCount: number = 1;
 
     selectedEmployeeCountRadioButton: string = 'All';
     statusMessage: string = 'Loading data. Please wait...';
@@ -24,6 +27,7 @@ export class employeeComponent implements OnInit {
     ngOnInit() {
         let empCode: string = this._activatedRoute.snapshot.params['code']
         this._employeeService.getEmployeesByCode(empCode)
+            .retry(180000)
             .subscribe(employeesData => {
                 if (employeesData == null)
                     this.statusMessage = 'Employee with the specified Employee Code does not exist'

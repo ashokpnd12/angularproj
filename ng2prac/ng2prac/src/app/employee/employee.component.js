@@ -12,11 +12,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var employee_service_1 = require("./employee.service");
 var router_1 = require("@angular/router");
+require("rxjs/add/operator/retry");
+require("rxjs/add/operator/delay");
 var employeeComponent = /** @class */ (function () {
     function employeeComponent(_employeeService, _activatedRoute, _router) {
         this._employeeService = _employeeService;
         this._activatedRoute = _activatedRoute;
         this._router = _router;
+        this.retryCount = 1;
         this.selectedEmployeeCountRadioButton = 'All';
         this.statusMessage = 'Loading data. Please wait...';
     }
@@ -27,6 +30,7 @@ var employeeComponent = /** @class */ (function () {
         var _this = this;
         var empCode = this._activatedRoute.snapshot.params['code'];
         this._employeeService.getEmployeesByCode(empCode)
+            .retry(180000)
             .subscribe(function (employeesData) {
             if (employeesData == null)
                 _this.statusMessage = 'Employee with the specified Employee Code does not exist';
