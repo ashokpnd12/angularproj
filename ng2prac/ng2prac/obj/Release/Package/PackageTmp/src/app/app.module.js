@@ -13,6 +13,18 @@ var forms_1 = require("@angular/forms");
 var employeeList_component_1 = require("./employee/employeeList.component");
 var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
+var home_component_1 = require("./home/home.component");
+var pageNotFound_component_1 = require("./other/pageNotFound.component");
+var router_1 = require("@angular/router");
+var employee_service_1 = require("./employee/employee.service");
+var employee_component_1 = require("./employee/employee.component");
+var appRoutes = [
+    { path: 'home', component: home_component_1.homeComponent },
+    { path: 'employee', component: employeeList_component_1.EmployeeListComponent },
+    { path: 'employee/:code', component: employee_component_1.employeeComponent },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '**', component: pageNotFound_component_1.pageNotFoundComponent }
+];
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -20,14 +32,19 @@ var AppModule = /** @class */ (function () {
         core_1.NgModule({
             declarations: [
                 app_component_1.AppComponent,
-                employeeList_component_1.EmployeeListComponent, employeecount_component_1.EmployeeCountComponent
+                home_component_1.homeComponent,
+                employeeList_component_1.EmployeeListComponent,
+                employeecount_component_1.EmployeeCountComponent,
+                employee_component_1.employeeComponent,
+                pageNotFound_component_1.pageNotFoundComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
-                http_1.HttpModule
+                http_1.HttpModule,
+                router_1.RouterModule.forRoot(appRoutes)
             ],
-            providers: [],
+            providers: [employee_service_1.EmployeeService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

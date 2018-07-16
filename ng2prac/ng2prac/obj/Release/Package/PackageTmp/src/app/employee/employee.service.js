@@ -12,8 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 // Import Http & Response from angular HTTP module
 var http_1 = require("@angular/http");
+// Import Observable from rxjs/Observable
+var Observable_1 = require("rxjs/Observable");
 // Import the map operator
 require("rxjs/add/operator/map");
+require("rxjs/add/operator/catch");
+require("rxjs/add/Observable/throw");
 // The @Injectable() decorator is used to inject other dependencies
 // into this service. As our service does not have any dependencies
 // at the moment, we may remove the @Injectable() decorator and the
@@ -57,7 +61,19 @@ var EmployeeService = /** @class */ (function () {
         // To convert Observable<Response> to Observable<IEmployee[]>
         // we are using the map operator
         return this._http.get('http://localhost:54171/api/employee')
-            .map(function (response) { return response.json(); });
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    EmployeeService.prototype.getEmployeesByCode = function (empCode) {
+        // To convert Observable<Response> to Observable<IEmployee[]>
+        // we are using the map operator
+        return this._http.get('http://localhost:54171/api/employee/' + empCode)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    EmployeeService.prototype.handleError = function (error) {
+        console.error(error);
+        return Observable_1.Observable.throw(error);
     };
     EmployeeService = __decorate([
         core_1.Injectable(),

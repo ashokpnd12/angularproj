@@ -13,16 +13,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 // Import EmployeeService
 var employee_service_1 = require("./employee.service");
+var userPreferences_service_1 = require("../employee/userPreferences.service");
 var EmployeeListComponent = /** @class */ (function () {
     // Inject EmployeeService using the constructor
     // The private variable _employeeService which points to
     // EmployeeService singelton instance is then available
     // throughout this class
-    function EmployeeListComponent(_employeeService) {
+    function EmployeeListComponent(_employeeService, _userPreference) {
         this._employeeService = _employeeService;
+        this._userPreference = _userPreference;
         this.selectedEmployeeCountRadioButton = 'All';
         this.statusMessage = 'Loading data. Please wait...';
     }
+    Object.defineProperty(EmployeeListComponent.prototype, "color", {
+        get: function () {
+            return this._userPreference.colorPreferences;
+        },
+        set: function (value) {
+            this._userPreference.colorPreferences = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     // In ngOnInit() life cycle hook call the getEmployees()
     // service method of EmployeeService using the private
     // variable _employeeService
@@ -52,7 +64,7 @@ var EmployeeListComponent = /** @class */ (function () {
         })
         // Make the class implement OnInit interface
         ,
-        __metadata("design:paramtypes", [employee_service_1.EmployeeService])
+        __metadata("design:paramtypes", [employee_service_1.EmployeeService, userPreferences_service_1.userPreferencesService])
     ], EmployeeListComponent);
     return EmployeeListComponent;
 }());

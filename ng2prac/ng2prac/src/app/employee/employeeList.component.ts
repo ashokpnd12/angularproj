@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { IEmployee } from './employee';
 // Import EmployeeService
 import { EmployeeService } from './employee.service';
+import { userPreferencesService } from '../employee/userPreferences.service'
 @Component({
     selector: 'list-employee',
     templateUrl: 'app/employee/employeeList.component.html',
@@ -14,12 +15,18 @@ export class EmployeeListComponent implements OnInit {
 
     selectedEmployeeCountRadioButton: string = 'All';
     statusMessage: string = 'Loading data. Please wait...';
-
     // Inject EmployeeService using the constructor
     // The private variable _employeeService which points to
     // EmployeeService singelton instance is then available
     // throughout this class
-    constructor(private _employeeService: EmployeeService) {
+    constructor(private _employeeService: EmployeeService, private _userPreference: userPreferencesService) {}
+
+    get color(): string {
+        return this._userPreference.colorPreferences
+    }
+
+    set color(value: string) {
+        this._userPreference.colorPreferences = value
     }
 
     // In ngOnInit() life cycle hook call the getEmployees()

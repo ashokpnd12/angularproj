@@ -18,6 +18,7 @@ var pageNotFound_component_1 = require("./other/pageNotFound.component");
 var router_1 = require("@angular/router");
 var employee_service_1 = require("./employee/employee.service");
 var employee_component_1 = require("./employee/employee.component");
+var test_component_1 = require("./other/test.component");
 var appRoutes = [
     { path: 'home', component: home_component_1.homeComponent },
     { path: 'employee', component: employeeList_component_1.EmployeeListComponent },
@@ -42,6 +43,7 @@ var AppModule = /** @class */ (function () {
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 http_1.HttpModule,
+                test_component_1.testModule,
                 router_1.RouterModule.forRoot(appRoutes)
             ],
             providers: [employee_service_1.EmployeeService],

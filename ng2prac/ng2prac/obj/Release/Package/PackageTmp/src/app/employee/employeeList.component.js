@@ -21,6 +21,7 @@ var EmployeeListComponent = /** @class */ (function () {
     function EmployeeListComponent(_employeeService) {
         this._employeeService = _employeeService;
         this.selectedEmployeeCountRadioButton = 'All';
+        this.statusMessage = 'Loading data. Please wait...';
     }
     // In ngOnInit() life cycle hook call the getEmployees()
     // service method of EmployeeService using the private
@@ -28,7 +29,7 @@ var EmployeeListComponent = /** @class */ (function () {
     EmployeeListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._employeeService.getEmployees()
-            .subscribe(function (employeesData) { return _this.employees = employeesData; });
+            .subscribe(function (employeesData) { return _this.employees = employeesData; }, function (error) { _this.statusMessage = 'Problem with the service. Please try again after sometime'; console.error(error); });
     };
     EmployeeListComponent.prototype.getTotalEmployeesCount = function () {
         return this.employees.length;
@@ -47,8 +48,7 @@ var EmployeeListComponent = /** @class */ (function () {
         core_1.Component({
             selector: 'list-employee',
             templateUrl: 'app/employee/employeeList.component.html',
-            styleUrls: ['app/employee/employeeList.component.css'],
-            providers: [employee_service_1.EmployeeService]
+            styleUrls: ['app/employee/employeeList.component.css']
         })
         // Make the class implement OnInit interface
         ,

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <UseIISExpress>true</UseIISExpress>
     <ProjectView>ProjectFiles</ProjectView>
-    <NameOfLastUsedPublishProfile>ng2prac</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>ng2proj</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

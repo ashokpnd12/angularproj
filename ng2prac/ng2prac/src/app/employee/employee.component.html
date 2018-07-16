@@ -1,4 +1,4 @@
-﻿<table *ngIf="employees">
+﻿<table>
     <thead>
         <tr>
             <th colspan="2">
@@ -6,7 +6,7 @@
             </th>
         </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="employees">
         <tr>
             <td>Code:</td>
             <td>{{employees.code}}</td>
@@ -27,8 +27,17 @@
             <td>DOB:</td>
             <td>{{employees.dateOfBirth}}</td>
         </tr>
+        
     </tbody>
+    <tr *ngIf="!employees">
+        <td align="center" colspan="2">
+            {{statusMessage}}
+        </td>
+    </tr>
 </table>
-<div *ngIf="!employees">
+<!--<div *ngIf="!employees">
     {{statusMessage}}
+</div>-->
+<div style="margin-top:5px;">
+    <input type="button" class="btn btn-primary" value="Back to Employee List" (click)='onBackButtonBind()'/>
 </div>

@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core'
 import { IEmployee } from './employee'
 import { EmployeeService } from './employee.service'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'my-employee',
@@ -13,7 +13,13 @@ export class employeeComponent implements OnInit {
 
     selectedEmployeeCountRadioButton: string = 'All';
     statusMessage: string = 'Loading data. Please wait...';
-    constructor(private _employeeService: EmployeeService, private _activatedRoute: ActivatedRoute) { }
+    constructor(private _employeeService: EmployeeService,
+        private _activatedRoute: ActivatedRoute,
+        private _router: Router) { }
+
+    onBackButtonBind(): void{
+        this._router.navigate(['/employee'])
+    }
 
     ngOnInit() {
         let empCode: string = this._activatedRoute.snapshot.params['code']
@@ -24,9 +30,9 @@ export class employeeComponent implements OnInit {
                 else
                     this.employees = employeesData
             },
-            error => {
-                this.statusMessage = 'Problem with the service. Please try again after sometime'
-                console.error(error)
-            })
+        error => {
+            this.statusMessage = 'Problem with the service. Please try again after sometime'
+            console.error(error)
+        })
     }
 }

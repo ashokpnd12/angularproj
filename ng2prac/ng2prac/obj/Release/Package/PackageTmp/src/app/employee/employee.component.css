@@ -1,0 +1,10 @@
+﻿table, td {
+    border: 1px solid black;
+    margin: 0 auto;
+    width: 40%;
+}
+th{
+    background-color: #808080;
+    border: 2px solid black;
+    text-align:center
+}

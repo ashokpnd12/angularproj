@@ -9,7 +9,9 @@ import { homeComponent } from './home/home.component'
 import { pageNotFoundComponent } from './other/pageNotFound.component'
 import { RouterModule, Routes } from '@angular/router'
 import { EmployeeService } from './employee/employee.service'
-import { employeeComponent} from './employee/employee.component'
+import { employeeComponent } from './employee/employee.component'
+import { userPreferencesService } from './employee/userPreferences.service'
+import { testModule } from './other/test.component'
 
 const appRoutes: Routes = [
     { path: 'home', component: homeComponent },
@@ -32,6 +34,7 @@ const appRoutes: Routes = [
         BrowserModule,
         FormsModule,
         HttpModule,
+        testModule,
         RouterModule.forRoot(appRoutes)
     ],
     providers: [EmployeeService],

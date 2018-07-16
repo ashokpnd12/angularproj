@@ -1,9 +1,22 @@
-﻿<employee-count *ngIf="employees" [all]="getTotalEmployeesCount()"
-                [male]="getTotalMaleEmployeesCount()"
-                [female]="getTotalFemaleEmployeesCount()"
-                (countRadioButtonSelectionChanged)="onEmployeeCountRadioButtonChange($event)">
-</employee-count>
-<br /><br />
+﻿<table>
+    <tr>
+        <td>
+    <employee-count *ngIf="employees" [all]="getTotalEmployeesCount()"
+                    [male]="getTotalMaleEmployeesCount()"
+                    [female]="getTotalFemaleEmployeesCount()"
+                    (countRadioButtonSelectionChanged)="onEmployeeCountRadioButtonChange($event)">
+    </employee-count>
+            </td>
+
+    <!--<tr style="float:right;">-->
+        <td>
+            <!--<div style="float:right; padding-right:135px;">-->
+            <input type="text" class="form-control" [(ngModel)]="color" [style.background]="color" placeholder="Prefered Color" />
+            <!--</div>-->
+        </td>
+    </tr>
+</table>
+<br/>
 <table>
     <thead>
         <tr>
