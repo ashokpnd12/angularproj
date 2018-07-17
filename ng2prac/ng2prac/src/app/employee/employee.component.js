@@ -13,7 +13,9 @@ var core_1 = require("@angular/core");
 var employee_service_1 = require("./employee.service");
 var router_1 = require("@angular/router");
 require("rxjs/add/operator/retry");
+require("rxjs/add/operator/retryWhen");
 require("rxjs/add/operator/delay");
+require("rxjs/add/operator/scan");
 var employeeComponent = /** @class */ (function () {
     function employeeComponent(_employeeService, _activatedRoute, _router) {
         this._employeeService = _employeeService;
@@ -30,8 +32,17 @@ var employeeComponent = /** @class */ (function () {
         var _this = this;
         var empCode = this._activatedRoute.snapshot.params['code'];
         this._employeeService.getEmployeesByCode(empCode)
-            .retry(180000)
-            .subscribe(function (employeesData) {
+            .retryWhen(function (err) {
+            return err.scan(function (retryCount) {
+                retryCount += 1;
+                if (retryCount < 6) {
+                    _this.statusMessage = 'Retrying...Attempt #' + retryCount;
+                    return retryCount;
+                }
+                else
+                    throw (err);
+            }, 0).delay(1000);
+        }).subscribe(function (employeesData) {
             if (employeesData == null)
                 _this.statusMessage = 'Employee with the specified Employee Code does not exist';
             else
