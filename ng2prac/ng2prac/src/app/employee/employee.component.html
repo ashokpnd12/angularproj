@@ -1,4 +1,4 @@
-﻿<table>
+﻿<table border="1">
     <thead>
         <tr>
             <th colspan="2">
@@ -37,6 +37,13 @@
 <!--<div *ngIf="!employees">
     {{statusMessage}}
 </div>-->
-<div style="margin-top:5px;">
-    <input type="button" class="btn btn-primary" value="Back to Employee List" (click)='onBackButtonBind()'/>
-</div>
+<br />
+<table>
+    <tr>
+        <td align="center" style="margin-top:5px;"><input type="button" class="btn btn-primary" value="Back to Employee List" (click)='onBackButtonBind()' /></td>
+    </tr>
+    <br/>
+    <tr  *ngIf="!Subscription.closed">
+        <td align="center"><input type="button" class="btn btn-primary" value="Stop Retry" (click)='onStopRetryButtonBind()' /></td>
+    </tr>
+</table>

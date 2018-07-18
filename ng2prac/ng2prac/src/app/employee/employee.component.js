@@ -28,10 +28,14 @@ var employeeComponent = /** @class */ (function () {
     employeeComponent.prototype.onBackButtonBind = function () {
         this._router.navigate(['/employee']);
     };
+    employeeComponent.prototype.onStopRetryButtonBind = function () {
+        this.statusMessage = "Retry attempt stopped";
+        this.Subscription.unsubscribe();
+    };
     employeeComponent.prototype.ngOnInit = function () {
         var _this = this;
         var empCode = this._activatedRoute.snapshot.params['code'];
-        this._employeeService.getEmployeesByCode(empCode)
+        this.Subscription = this._employeeService.getEmployeesByCode(empCode)
             .retryWhen(function (err) {
             return err.scan(function (retryCount) {
                 retryCount += 1;

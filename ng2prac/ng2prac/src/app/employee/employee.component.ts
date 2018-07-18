@@ -6,6 +6,7 @@ import 'rxjs/add/operator/retry'
 import 'rxjs/add/operator/retryWhen'
 import 'rxjs/add/operator/delay'
 import 'rxjs/add/operator/scan'
+import { ISubscription } from 'rxjs/Subscription'
 
 @Component({
     selector: 'my-employee',
@@ -15,6 +16,7 @@ import 'rxjs/add/operator/scan'
 export class employeeComponent implements OnInit {
     employees: IEmployee;
     retryCount: number = 1;
+    Subscription: ISubscription
 
     selectedEmployeeCountRadioButton: string = 'All';
     statusMessage: string = 'Loading data. Please wait...';
@@ -26,9 +28,14 @@ export class employeeComponent implements OnInit {
         this._router.navigate(['/employee'])
     }
 
+    onStopRetryButtonBind(): void {
+        this.statusMessage = "Retry attempt stopped"
+        this.Subscription.unsubscribe()
+    }
+
     ngOnInit() {
         let empCode: string = this._activatedRoute.snapshot.params['code']
-        this._employeeService.getEmployeesByCode(empCode)
+        this.Subscription = this._employeeService.getEmployeesByCode(empCode)
             .retryWhen(err => {
                 return err.scan((retryCount) => {
                     retryCount += 1
