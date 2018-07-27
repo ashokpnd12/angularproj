@@ -12,11 +12,13 @@ import { EmployeeService } from './employee/employee.service'
 import { employeeComponent } from './employee/employee.component'
 import { userPreferencesService } from './employee/userPreferences.service'
 import { testModule } from './other/test.component'
+import { studentlist} from './student/studentlist.component'
 
 const appRoutes: Routes = [
     { path: 'home', component: homeComponent },
     { path: 'employee', component: EmployeeListComponent },
     { path: 'employee/:code', component: employeeComponent },
+    { path: 'student', component: studentlist },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: pageNotFoundComponent }
 ];
@@ -28,6 +30,7 @@ const appRoutes: Routes = [
         EmployeeListComponent,
         EmployeeCountComponent,
         employeeComponent,
+        studentlist,
         pageNotFoundComponent
     ],
     imports: [

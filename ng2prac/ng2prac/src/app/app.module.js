@@ -19,10 +19,12 @@ var router_1 = require("@angular/router");
 var employee_service_1 = require("./employee/employee.service");
 var employee_component_1 = require("./employee/employee.component");
 var test_component_1 = require("./other/test.component");
+var studentlist_component_1 = require("./student/studentlist.component");
 var appRoutes = [
     { path: 'home', component: home_component_1.homeComponent },
     { path: 'employee', component: employeeList_component_1.EmployeeListComponent },
     { path: 'employee/:code', component: employee_component_1.employeeComponent },
+    { path: 'student', component: studentlist_component_1.studentlist },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: pageNotFound_component_1.pageNotFoundComponent }
 ];
@@ -37,6 +39,7 @@ var AppModule = /** @class */ (function () {
                 employeeList_component_1.EmployeeListComponent,
                 employeecount_component_1.EmployeeCountComponent,
                 employee_component_1.employeeComponent,
+                studentlist_component_1.studentlist,
                 pageNotFound_component_1.pageNotFoundComponent
             ],
             imports: [

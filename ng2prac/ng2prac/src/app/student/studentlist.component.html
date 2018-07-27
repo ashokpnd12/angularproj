@@ -1,0 +1,34 @@
+﻿<h1 align="center"><u>Student List</u></h1>
+<br/>
+<table *ngFor="let stu of student" align="center">
+    <thead>
+        <tr>
+            <td>
+                <b>{{stu.name}}</b>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="4">
+               <img src='{{stu.photo}}' width='200px' height='200px' />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address: {{stu.address}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                mobile: {{stu.mobile}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                stream: {{stu.stream}}
+            </td>
+        </tr>
+        <br/>
+    </tbody>
+</table>

@@ -11,6 +11,9 @@ import { Component } from '@angular/core';
                             <li routerLinkActive="active">
                                 <a routerLink="employee">Employees</a>
                             </li>
+                            <li routerLinkActive="active">
+                                <a routerLink="student">Students</a>
+                            </li>
                         </ul>
                         <br/>
                         <router-outlet></router-outlet>
