@@ -4,6 +4,11 @@ import { IEmployee } from './employee';
 // Import EmployeeService
 import { EmployeeService } from './employee.service';
 import { userPreferencesService } from '../employee/userPreferences.service'
+import 'rxjs/add/operator/retry'
+import 'rxjs/add/operator/retryWhen'
+import 'rxjs/add/operator/delay'
+import 'rxjs/add/operator/scan'
+import { ISubscription } from 'rxjs/Subscription'
 @Component({
     selector: 'list-employee',
     templateUrl: 'app/employee/employeeList.component.html',
@@ -12,6 +17,8 @@ import { userPreferencesService } from '../employee/userPreferences.service'
 // Make the class implement OnInit interface
 export class EmployeeListComponent implements OnInit {
     employees: IEmployee[];
+    retryCount: number = 1;
+    Subscription: ISubscription
 
     selectedEmployeeCountRadioButton: string = 'All';
     statusMessage: string = 'Loading data. Please wait...';
@@ -29,11 +36,27 @@ export class EmployeeListComponent implements OnInit {
         this._userPreference.colorPreferences = value
     }
 
+    onStopRetryButtonBind(): void {
+        this.statusMessage = "Retry attempt stopped"
+        this.Subscription.unsubscribe()
+    }
+
     // In ngOnInit() life cycle hook call the getEmployees()
     // service method of EmployeeService using the private
     // variable _employeeService
     ngOnInit() {
-        this._employeeService.getEmployees()
+        this.Subscription=this._employeeService.getEmployees()
+            .retryWhen(err => {
+                return err.scan((retryCount) => {
+                    retryCount += 1
+                    if (retryCount < 6) {
+                        this.statusMessage = 'Retrying...Attempt #' + retryCount
+                        return retryCount
+                    }
+                    else
+                        throw (err)
+                }, 0).delay(1000)
+            })
             .subscribe(employeesData => this.employees = employeesData, error => { this.statusMessage = 'Problem with the service. Please try again after sometime'; console.error(error) });
     }
 
